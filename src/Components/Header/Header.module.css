@@ -1,0 +1,9 @@
+.header{
+   height: 170px;
+   width: 100%;
+}
+.container{
+    height: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
