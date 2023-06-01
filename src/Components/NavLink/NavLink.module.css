@@ -1,0 +1,11 @@
+.shell{}
+.link{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+}
+.link:hover{
+    color: #b41818;
+}
