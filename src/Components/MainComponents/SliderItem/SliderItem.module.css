@@ -1,9 +1,26 @@
-.slider__item{
-    flex: 0 0 100%;
+.slider__item {
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 125px;
     color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.5s ease 0s;
+    border-radius: 25px;
+}
+
+.slider__item.activeSlide {
+    opacity: 1;
+    transform: translateX(0);
+}
+.slider__item.lastSlide {
+    transform: translateX(-100%);
+}
+.slider__item.nextSlide {
+    transform: translateX(100%);
 }

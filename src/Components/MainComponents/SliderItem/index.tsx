@@ -1,9 +1,9 @@
 import style from './SliderItem.module.css'
 import { FC } from 'react'
 
-const SliderItem:FC<{index: number,color: string}> = ({index,color}) =>{
+const SliderItem:FC<{text: number,backgroundColor: string, position: string}> = ({text,backgroundColor,position}) =>{
     return(
-        <div className={style.slider__item} style={{backgroundColor: color}}>{index + 1}</div>
+        <div className={[style.slider__item,style[position]].join(' ')} style={{backgroundColor: backgroundColor}}>{text}</div>
     )
 }
 export default SliderItem
