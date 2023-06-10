@@ -1,0 +1,36 @@
+.size__choose{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #5e6267;
+    border-radius: 25px;
+    height: 36px;
+    width: 100%;
+    padding: 0 25px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.min,
+.max{
+    color: #36373b;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+.background{
+   position: absolute;
+   width: 50%;
+   height: 100%;
+   border-radius: 25px;
+   background-color: #a5b0b8; 
+   transition: all .5s ease 0s;
+   left: 0;
+   top: 0;
+}
+.background__min{
+    transform: translateX(0);
+}
+.background__max{
+    transform: translateX(100%);
+}

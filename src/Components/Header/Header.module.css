@@ -33,13 +33,13 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: white;
+    color: #e0e0e0;
 }
 .cities_selected{
     display: inline-block;
     cursor: pointer;
-    color: white;
-    border-bottom: 1px dashed white;
+    color: #e0e0e0;
+    border-bottom: 1px dashed #e0e0e0;
 }
 .cities_selected:hover{
     color: #b41818;
