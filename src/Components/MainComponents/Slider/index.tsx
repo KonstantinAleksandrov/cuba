@@ -1,27 +1,11 @@
 import SliderItem from '../SliderItem'
 import style from './Slider.module.css'
-import { useState, useEffect } from 'react'
 import rightArrow from './icons/right.svg'
 import leftArrow from './icons/left.svg'
-import { sliderList } from './data'
-
+import useTime from "./useTime";
 
 const Slider = () => {
-    const [sliders, setSliders] = useState(sliderList)
-    const [sliderCounter, setSliderCounter] = useState(0);
-
-    useEffect(() => {
-        const lastIndex: number = sliders.length - 1
-        if (sliderCounter < 0) setSliderCounter(lastIndex)
-        if (sliderCounter > lastIndex) setSliderCounter(0)
-    }, [sliderCounter, sliders])
-
-    useEffect(() => {
-        let timer = setInterval(() => setSliderCounter(sliderCounter + 1), 5000)
-        return () => {
-            clearInterval(timer)
-        }
-    }, [sliderCounter])
+    const [sliders, sliderCounter, setSliderCounter] = useTime(0)
 
     return (
         <div className={style.slider__shell}>

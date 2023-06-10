@@ -1,4 +1,4 @@
-interface slide {
+export interface slide {
     id: number;
     backgroundColor: string;
 }
