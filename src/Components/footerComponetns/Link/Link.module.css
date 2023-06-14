@@ -1,0 +1,11 @@
+.link{
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.link:hover{
+    color: #b41818;
+}

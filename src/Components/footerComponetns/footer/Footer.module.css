@@ -1,0 +1,21 @@
+.footer{
+    padding-bottom: 50px;
+    width: 80%;
+}
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    align-items: center;
+    padding: 30px 20px 0 20px;
+}
+
+.info__activeLinks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 50px;
+    row-gap: 20px;
+}
