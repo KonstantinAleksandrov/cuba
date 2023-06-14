@@ -1,19 +1,25 @@
 import BlockProducts from '../BlockProducts'
-import Slider from '../Slider'
+import DefaultMain from '../DefaultMain';
 import style from './Main.module.css'
-import { useMemo } from 'react'
+import { products } from '../ProductsData';
+import { Routes, Route} from "react-router-dom";
+import Info from '../Info';
+
+
+/* import { RouteComponentProps } from 'react-router-dom'; */
 
 const Main = () => {
-    const pizza = useMemo<number[]>(()=>[1,2,3,4,5,6,7,8,9,10],[])
-    const snaks = useMemo<number[]>(()=>[1,2,3,4,5,6,7,8,9],[])
-    const beverages = useMemo<number[]>(()=>[1,2,3,4],[])
+    
     return(
         <main className={style.main}>
             <div className={style.container}>
-            <Slider/>
-            <BlockProducts title='Пицца' products={pizza}/>
-            <BlockProducts title='Закуски' products={snaks}/>
-            <BlockProducts title='Напитки' products={beverages}/>
+                <Routes>
+                    <Route path='/' element={<DefaultMain/>}></Route>
+                    <Route path={products.pizza.route} element={<BlockProducts title={products.pizza.type} route={products.pizza.route} selected={true} products={products.pizza.products}/>}></Route>
+                    <Route path={products.snaks.route} element={<BlockProducts title={products.snaks.type} route={products.snaks.route} selected={true} products={products.snaks.products}/>}></Route>
+                    <Route path={products.beverages.route} element={<BlockProducts title={products.beverages.type} route={products.beverages.route} selected={true} products={products.beverages.products}/>}></Route>
+                    {/* <Route path='/info' render={(props) =><Info {...props} />}></Route> */}
+                </Routes>
             </div>
         </main>
     )

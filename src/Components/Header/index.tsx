@@ -1,17 +1,20 @@
 import style from './Header.module.css'
 import mainLogo from './icons/mainLogo.jpg'
-import City from '../City'
-import Phones from '../Phones'
-import Button from '../Button'
-import NavLink from '../NavLink'
+import City from './Components/City'
+import Phones from './Components/Phones'
+import Button from './Components/Button'
+import NavLink from './Components/NavLink'
+import { Link } from 'react-router-dom';
+import { products } from '../MainComponents/ProductsData'
+
 const Header = () =>{
     return(
         <header className={style.header}>
             <div className={style.container}>
                 <div className={style.header__top}>
-                    <div className={style.main__logo}>
+                    <Link to='/' className={style.main__logo}>
                         <img src={mainLogo} alt="main logo"/>
-                    </div>
+                    </Link>
                     <div className={style.cities}>
                         <div className={style.cities_selected}>Воронеж</div>
                         <ul className={style.cities_list} style={{display:'none'}}>
@@ -32,9 +35,9 @@ const Header = () =>{
                 </div>
                 <div className={style.header__bottom}>
                     <div className={style.header__menu}>
-                        <NavLink text="Пицца"/>
-                        <NavLink text="Закуски"/>
-                        <NavLink text="Напитки"/>
+                        <NavLink text={products.pizza.type} route={products.pizza.route}/>
+                        <NavLink text={products.snaks.type} route={products.snaks.route}/>
+                        <NavLink text={products.beverages.type} route={products.beverages.route}/>
                     </div>
                     <Button text='Корзина' type='basket'/>
                 </div>

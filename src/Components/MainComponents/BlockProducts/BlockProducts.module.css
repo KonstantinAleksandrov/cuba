@@ -6,15 +6,40 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+}
+.nav{
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.arrow{
+    width: 20px;
+    height: 20px;
 }
 .title{
     font-weight: 600;
     font-size: 30px;
     color: #e0e0e0;
+    margin-bottom: 40px;
 }
 .body{
     display: grid;
     grid-template-columns: repeat(4,minmax(0,1fr));
     gap: 50px;
+}
+.now__link{
+    color: #b41818;
+}
+
+@media screen and (max-width: 1000px) {
+    .body{
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+}
+@media screen and (max-width: 600px) {
+    .body{
+        grid-template-columns: repeat(1,minmax(0,1fr));
+    }
 }

@@ -1,12 +1,11 @@
 .size__choose{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: #5e6267;
     border-radius: 25px;
     height: 36px;
     width: 100%;
-    padding: 0 25px;
     margin-bottom: 20px;
     position: relative;
 }

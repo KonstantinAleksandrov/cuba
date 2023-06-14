@@ -1,0 +1,10 @@
+.phone{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.phone a {
+    font-size: 18px;
+    color: #e0e0e0;
+    font-weight: 600;
+}

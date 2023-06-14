@@ -2,7 +2,7 @@ import { FC } from 'react'
 import style from './ProductCard.module.css'
 import pizza from './icons/pizza.png'
 import infoIcon from './icons/infoIcon.png'
-import Button from '../../Button'
+import Button from '../../Header/Components/Button'
 import ProductCardSticker from '../ProductCardSticker'
 import { useState } from 'react'
 import ProductCardSChooseSize from '../ProductCardSChooseSize'
@@ -29,12 +29,7 @@ const ProductCard: FC<IProductData> = ({ productData, size }) => {
             <div className={style.img}>
                 <img src={pizza} alt="pizza" />
             </div>
-            <div className={style.block__title}>
-                <div className={style.title}>ва-банк</div>
-                <div className={style.info}>
-                    <img src={infoIcon} alt="info icon" />
-                </div>
-            </div>
+            <div className={style.title}>ва-банк</div>
             <div className={style.description}>Грудка куриная копченая, колбаски кабаносси, маринованный лук, перчик халапеньо, помидоры, соус острый, сыр моцарелла.</div>
             <div className={style.bottom}>
                 {size.choosing 
@@ -48,7 +43,7 @@ const ProductCard: FC<IProductData> = ({ productData, size }) => {
                 }
                 <div className={style.buy}>
                     <Button text='В корзину' type='basket' />
-                    <div className={style.price}>{productSize == 'min' ? 650 : 850}<span>Р</span></div>
+                    <div className={style.price}>{productSize === 'min' ? 650 : 850}<span>Р</span></div>
                 </div>
             </div>
             <div className={style.stickers}>

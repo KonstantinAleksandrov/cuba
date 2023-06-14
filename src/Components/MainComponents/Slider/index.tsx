@@ -2,24 +2,38 @@ import SliderItem from '../SliderItem'
 import style from './Slider.module.css'
 import rightArrow from './icons/right.svg'
 import leftArrow from './icons/left.svg'
-import useTime from "./useTime";
+import { useEffect, useState } from "react";
+import { sliderList } from './data';
 
 const Slider = () => {
-    const [sliders, sliderCounter, setSliderCounter] = useTime(0)
+    const [sliderCounter, setSliderCounter] = useState(0);
+
+    useEffect(() => {
+        const lastIndex: number = sliderList.length - 1
+        if (sliderCounter < 0) setSliderCounter(lastIndex)
+        if (sliderCounter > lastIndex) setSliderCounter(0)
+    }, [sliderCounter])
+
+    useEffect(() => {
+        let timer = setInterval(() => setSliderCounter(sliderCounter + 1), 5000)
+        return () => {
+            clearInterval(timer)
+        }
+    }, [sliderCounter])
 
     return (
         <div className={style.slider__shell}>
             <div className={style.slider}>
                 <div className={style.slider__container}>
-                    {sliders.map((slide, slideIndex) => {
+                    {sliderList.map((slide, slideIndex) => {
                         const { id, backgroundColor } = slide
                         let position: string = 'nextSlide'
 
                         if (slideIndex === sliderCounter) position = 'activeSlide'
-                        if (slideIndex === sliderCounter - 1 || (sliderCounter === 0 && slideIndex === sliders.length - 1)) position = 'lastSlide'
+                        if (slideIndex === sliderCounter - 1 || (sliderCounter === 0 && slideIndex === sliderList.length - 1)) position = 'lastSlide'
 
                         return (
-                            <SliderItem text={id} backgroundColor={backgroundColor} key={id} position={position}/>
+                            <SliderItem text={id} backgroundColor={backgroundColor} key={id} position={position} />
                         )
                     })}
                 </div>
@@ -33,10 +47,10 @@ const Slider = () => {
                 </div>
             </div>
             <div className={style.dots}>
-                {sliders.map((slide, dotIndex) =>{
+                {sliderList.map((slide, dotIndex) => {
                     let classModifier: string = ''
                     if (dotIndex === sliderCounter) classModifier = 'activeDot'
-                    return(
+                    return (
                         <span className={style[classModifier]} key={slide.id} onClick={() => setSliderCounter(dotIndex)}></span>
                     )
                 })}
