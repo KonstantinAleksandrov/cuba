@@ -7,13 +7,15 @@ import ProductCardSticker from '../ProductCardSticker'
 import { useState } from 'react'
 import ProductCardSChooseSize from '../ProductCardSChooseSize'
 import { IProductData } from '../../../types'
+import Modal from "../../Modal";
 
-const ProductCard: FC<IProductData> = ({ productData, size , openModal}) => {
+const ProductCard: FC<IProductData> = ({ productData, size }) => { // TODO: line 41 add mew component for modal view
     const [productSize, setProductSize] = useState('min')
+    const [modalOpen, setModalOpen] = useState<boolean>(false)
 
     return (
         <div className={style.card} onClick={(e):void => e.stopPropagation()}>
-            <div className={style.img} onClick={()=>openModal(true)}>
+            <div className={style.img} onClick={()=> modalOpen ? null : setModalOpen(true)}>
                 <img src={pizza} alt="pizza" />
             </div>
             <div className={style.title}>ва-банк</div>
@@ -36,6 +38,7 @@ const ProductCard: FC<IProductData> = ({ productData, size , openModal}) => {
             <div className={style.stickers}>
                 <ProductCardSticker text='Хит продаж' type='green' />
             </div>
+          {modalOpen && <Modal modalId={"modalId" + productData} openModal={setModalOpen}><ProductCard productData={1} size={{choosing: true, minSize : '33 см (1кг)',maxSize : '41 см (1.5кг)'}}/></Modal>}
         </div>
     )
 }

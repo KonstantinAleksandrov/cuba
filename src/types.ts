@@ -11,7 +11,7 @@ interface ISize {
     maxSize: string;
 }
 
-export interface IProductData extends IOpenModal {
+export interface IProductData {
     productData: number
     size: ISize
 }

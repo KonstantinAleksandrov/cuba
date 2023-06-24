@@ -1,18 +1,22 @@
-import { FC } from 'react'
+import {FC, useEffect} from 'react'
 import style from './BlockProducts.module.css'
 import ProductCard from '../ProductCard'
 import NavLink from '../../Header/Components/NavLink'
 import { IOpenModal } from '../../../types'
 
 
-interface IBlockProducts extends IOpenModal{
+interface IBlockProducts {
     title : string,
     products : number[],
     selected : boolean,
     route: string
 }
 
-const BlockProducts:FC<IBlockProducts> = ({title,selected,route,products,openModal}) =>{
+const BlockProducts:FC<IBlockProducts> = ({title,selected,route,products}) =>{
+
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
 
     return (
         <div className={style.block__Products}>
@@ -49,7 +53,6 @@ const BlockProducts:FC<IBlockProducts> = ({title,selected,route,products,openMod
                                 maxSize: ''
                             }
                         }
-                        openModal = {openModal}
                         key={product}
                         />
                     )
