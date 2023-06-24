@@ -1,14 +1,13 @@
-import {Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 
 export interface IOpenModal {
     openModal: Dispatch<SetStateAction<boolean>>
 }
 
-
 interface ISize {
-    choosing: boolean;
-    minSize: string;
-    maxSize: string;
+    choosing: boolean
+    minSize: string
+    maxSize: string
 }
 
 export interface IProductData {

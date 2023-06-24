@@ -1,4 +1,4 @@
-.size__choose{
+.size__choose {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -10,26 +10,26 @@
     position: relative;
 }
 .min,
-.max{
+.max {
     color: #36373b;
     text-align: center;
     position: relative;
     z-index: 1;
     cursor: pointer;
 }
-.background{
-   position: absolute;
-   width: 50%;
-   height: 100%;
-   border-radius: 25px;
-   background-color: #a5b0b8; 
-   transition: all .5s ease 0s;
-   left: 0;
-   top: 0;
+.background {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    border-radius: 25px;
+    background-color: #a5b0b8;
+    transition: all 0.5s ease 0s;
+    left: 0;
+    top: 0;
 }
-.background__min{
+.background__min {
     transform: translateX(0);
 }
-.background__max{
+.background__max {
     transform: translateX(100%);
 }

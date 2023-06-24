@@ -3,15 +3,17 @@ import style from './Footer.module.css'
 import { activeLinks } from '../Link/data'
 import Link from '../Link'
 
-const Footer = () =>{
+const Footer = () => {
     return (
         <footer className={style.footer}>
             <div className={style.container}>
                 <div className={style.info__activeLinks}>
-                    {activeLinks.map((link)=><Link key={link} title={link}/>)}
+                    {activeLinks.map((link) => (
+                        <Link key={link} title={link} />
+                    ))}
                 </div>
                 <div className={style.info__staticLinks}>
-                    <Phones/>
+                    <Phones />
                 </div>
             </div>
         </footer>

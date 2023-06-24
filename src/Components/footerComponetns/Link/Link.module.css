@@ -1,4 +1,4 @@
-.link{
+.link {
     font-size: 16px;
     font-weight: 500;
     color: white;
@@ -6,6 +6,6 @@
     cursor: pointer;
 }
 
-.link:hover{
+.link:hover {
     color: #b41818;
 }

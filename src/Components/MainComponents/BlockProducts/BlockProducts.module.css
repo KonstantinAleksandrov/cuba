@@ -1,45 +1,45 @@
-.block__Products{
+.block__Products {
     width: 100%;
     margin-bottom: 100px;
 }
-.header{
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
 }
-.nav{
+.nav {
     margin-bottom: 30px;
     display: flex;
     align-items: center;
     gap: 5px;
 }
-.arrow{
+.arrow {
     width: 20px;
     height: 20px;
 }
-.title{
+.title {
     font-weight: 600;
     font-size: 30px;
     color: #e0e0e0;
     margin-bottom: 40px;
 }
-.body{
+.body {
     display: grid;
-    grid-template-columns: repeat(4,minmax(0,1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 50px;
 }
-.now__link{
+.now__link {
     color: #b41818;
 }
 
 @media screen and (max-width: 1000px) {
-    .body{
-        grid-template-columns: repeat(2,minmax(0,1fr));
+    .body {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 @media screen and (max-width: 600px) {
-    .body{
-        grid-template-columns: repeat(1,minmax(0,1fr));
+    .body {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 }

@@ -1,4 +1,4 @@
-.sticker{
+.sticker {
     width: fit-content;
     min-width: 100%;
     display: flex;
@@ -10,6 +10,6 @@
     border-radius: 25px;
     padding: 0 10px;
 }
-.sticker.green{
-    background-color: #66B032;
+.sticker.green {
+    background-color: #66b032;
 }

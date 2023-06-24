@@ -2,11 +2,11 @@ import SliderItem from '../SliderItem'
 import style from './Slider.module.css'
 import rightArrow from './icons/right.svg'
 import leftArrow from './icons/left.svg'
-import { useEffect, useState } from "react";
-import { sliderList } from './data';
+import { useEffect, useState } from 'react'
+import { sliderList } from './data'
 
 const Slider = () => {
-    const [sliderCounter, setSliderCounter] = useState(0);
+    const [sliderCounter, setSliderCounter] = useState(0)
 
     useEffect(() => {
         const lastIndex: number = sliderList.length - 1
@@ -29,19 +29,36 @@ const Slider = () => {
                         const { id, backgroundColor } = slide
                         let position: string = 'nextSlide'
 
-                        if (slideIndex === sliderCounter) position = 'activeSlide'
-                        if (slideIndex === sliderCounter - 1 || (sliderCounter === 0 && slideIndex === sliderList.length - 1)) position = 'lastSlide'
+                        if (slideIndex === sliderCounter)
+                            position = 'activeSlide'
+                        if (
+                            slideIndex === sliderCounter - 1 ||
+                            (sliderCounter === 0 &&
+                                slideIndex === sliderList.length - 1)
+                        )
+                            position = 'lastSlide'
 
                         return (
-                            <SliderItem text={id} backgroundColor={backgroundColor} key={id} position={position} />
+                            <SliderItem
+                                text={id}
+                                backgroundColor={backgroundColor}
+                                key={id}
+                                position={position}
+                            />
                         )
                     })}
                 </div>
                 <div className={style.arrows}>
-                    <div className={style.next__arrow} onClick={() => setSliderCounter(sliderCounter + 1)}>
+                    <div
+                        className={style.next__arrow}
+                        onClick={() => setSliderCounter(sliderCounter + 1)}
+                    >
                         <img src={rightArrow} alt="right Arrow" />
                     </div>
-                    <div className={style.previous__arrow} onClick={() => setSliderCounter(sliderCounter - 1)}>
+                    <div
+                        className={style.previous__arrow}
+                        onClick={() => setSliderCounter(sliderCounter - 1)}
+                    >
                         <img src={leftArrow} alt="left Arrow" />
                     </div>
                 </div>
@@ -51,7 +68,11 @@ const Slider = () => {
                     let classModifier: string = ''
                     if (dotIndex === sliderCounter) classModifier = 'activeDot'
                     return (
-                        <span className={style[classModifier]} key={slide.id} onClick={() => setSliderCounter(dotIndex)}></span>
+                        <span
+                            className={style[classModifier]}
+                            key={slide.id}
+                            onClick={() => setSliderCounter(dotIndex)}
+                        ></span>
                     )
                 })}
             </div>

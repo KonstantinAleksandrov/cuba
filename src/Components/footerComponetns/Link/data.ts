@@ -1,5 +1,3 @@
-
-
 export const activeLinks: string[] = [
     'Доставка и оплата',
     'Контакты',
@@ -9,5 +7,5 @@ export const activeLinks: string[] = [
     'Реквизиты',
     'Личный кабинет',
     'Акции',
-    'Статьи'
+    'Статьи',
 ]
