@@ -6,27 +6,14 @@ import Button from '../../Header/Components/Button'
 import ProductCardSticker from '../ProductCardSticker'
 import { useState } from 'react'
 import ProductCardSChooseSize from '../ProductCardSChooseSize'
+import { IProductData } from '../../../types'
 
-export interface ISize {
-    choosing: boolean;
-    minSize: string;
-    maxSize: string;
-}
-
-interface IProductData {
-    productData: number
-    size: ISize
-}
-
-
-
-
-const ProductCard: FC<IProductData> = ({ productData, size }) => {
+const ProductCard: FC<IProductData> = ({ productData, size , openModal}) => {
     const [productSize, setProductSize] = useState('min')
 
     return (
-        <div className={style.card}>
-            <div className={style.img}>
+        <div className={style.card} onClick={(e):void => e.stopPropagation()}>
+            <div className={style.img} onClick={()=>openModal(true)}>
                 <img src={pizza} alt="pizza" />
             </div>
             <div className={style.title}>ва-банк</div>

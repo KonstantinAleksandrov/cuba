@@ -1,18 +1,18 @@
 import { FC } from 'react'
 import style from './BlockProducts.module.css'
-import Button from '../../Header/Components/Button'
 import ProductCard from '../ProductCard'
 import NavLink from '../../Header/Components/NavLink'
+import { IOpenModal } from '../../../types'
 
 
-interface IBlockProducts {
+interface IBlockProducts extends IOpenModal{
     title : string,
     products : number[],
     selected : boolean,
     route: string
 }
 
-const BlockProducts:FC<IBlockProducts> = ({title,selected,route,products}) =>{
+const BlockProducts:FC<IBlockProducts> = ({title,selected,route,products,openModal}) =>{
 
     return (
         <div className={style.block__Products}>
@@ -49,6 +49,7 @@ const BlockProducts:FC<IBlockProducts> = ({title,selected,route,products}) =>{
                                 maxSize: ''
                             }
                         }
+                        openModal = {openModal}
                         key={product}
                         />
                     )
