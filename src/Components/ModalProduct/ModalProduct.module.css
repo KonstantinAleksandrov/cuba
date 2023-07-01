@@ -1,0 +1,95 @@
+.card{
+    max-width: 1000px;
+    min-height: 550px;
+    display: flex;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+}
+.img{
+    flex: 0 0 65%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #36373b;
+}
+.img img{
+    width: 70%;
+    height: 80%;
+    object-fit: contain;
+}
+.info{
+    background-color: #3e4146;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.stickers{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(85px, 110px));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.title{
+    font-size: 20px;
+    font-weight: 60;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+.text{
+    color: white;
+    line-height: 1.375;
+    margin-bottom: 40px;
+}
+.inCard{
+    width: 100%;
+    margin-top: auto;
+}
+.inCard div {
+    width: 100%;
+}
+.size{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5e6267;
+    border-radius: 25px;
+    height: 36px;
+    width: 100%;
+    padding: 0 25px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.min{
+    color: #36373b;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+}
+.background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background-color: #a5b0b8;
+}
+.cross{
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    width: 25px;
+    height: 25px;
+    z-index: 1;
+    cursor: pointer;
+}
+.cross img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

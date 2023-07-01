@@ -2,7 +2,6 @@ import { FC, useEffect } from 'react'
 import style from './BlockProducts.module.css'
 import ProductCard from '../ProductCard'
 import NavLink from '../../Header/Components/NavLink'
-import { IOpenModal } from '../../../types'
 
 interface IBlockProducts {
     title: string

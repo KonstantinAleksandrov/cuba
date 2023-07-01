@@ -1,24 +1,23 @@
 import { FC } from 'react'
 import style from './ProductCard.module.css'
 import pizza from './icons/pizza.png'
-import infoIcon from './icons/infoIcon.png'
 import Button from '../../Header/Components/Button'
 import ProductCardSticker from '../ProductCardSticker'
 import { useState } from 'react'
 import ProductCardSChooseSize from '../ProductCardSChooseSize'
 import { IProductData } from '../../../types'
 import Modal from '../../Modal'
+import ModalProduct from '../../ModalProduct'
 
 const ProductCard: FC<IProductData> = ({ productData, size }) => {
-    // TODO: line 41 add mew component for modal view
     const [productSize, setProductSize] = useState('min')
     const [modalOpen, setModalOpen] = useState<boolean>(false)
 
     return (
-        <div className={style.card} onClick={(e): void => e.stopPropagation()}>
+        <div className={style.card}>
             <div
                 className={style.img}
-                onClick={() => (modalOpen ? null : setModalOpen(true))}
+                onClick={() => setModalOpen(true)}
             >
                 <img src={pizza} alt="pizza" />
             </div>
@@ -57,13 +56,10 @@ const ProductCard: FC<IProductData> = ({ productData, size }) => {
                     modalId={'modalId' + productData}
                     openModal={setModalOpen}
                 >
-                    <ProductCard
-                        productData={1}
-                        size={{
-                            choosing: true,
-                            minSize: '33 см (1кг)',
-                            maxSize: '41 см (1.5кг)',
-                        }}
+                    <ModalProduct
+                        productData={productData}
+                        size={size}
+                        openModal={setModalOpen}
                     />
                 </Modal>
             )}

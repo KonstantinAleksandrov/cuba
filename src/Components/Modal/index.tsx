@@ -23,7 +23,6 @@ const Modal: FC<IModal> = ({ openModal, children, modalId }) => {
             document.body.append(div)
             setModalContainer(div)
         }
-
         return () => {
             document.querySelector('#' + modalId)?.remove()
         }
@@ -37,7 +36,7 @@ const Modal: FC<IModal> = ({ openModal, children, modalId }) => {
                         className={style.modalContainer}
                         onClick={() => openModal(false)}
                     >
-                        <div onClick={(e) => e.stopPropagation()}>
+                        <div onClick={(e) => e.stopPropagation()} style={{padding:'0 20px'}}>
                             {children}
                         </div>
                     </section>,
