@@ -5,11 +5,12 @@ interface Ibutton {
     text: string
     type: string
     children?: ReactElement | boolean
+    onClick?: () => void
 }
 
-const Button: FC<Ibutton> = ({ text, type, children = false }) => {
+const Button: FC<Ibutton> = ({ text, type, children = false, onClick }) => {
     return (
-        <div className={style[`shell__${type}`]}>
+        <div className={style[`shell__${type}`]} onClick={onClick}>
             {children ? (
                 children
             ) : (

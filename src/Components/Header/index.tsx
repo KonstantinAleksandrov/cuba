@@ -6,8 +6,12 @@ import Button from './Components/Button'
 import NavLink from './Components/NavLink'
 import { Link } from 'react-router-dom'
 import { products } from '../MainComponents/ProductsData'
+import Modal from "../Modal";
+import SignInForm from '../SignInForm'
+import {useState} from 'react'
 
 const Header = () => {
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     return (
         <header className={style.header}>
             <div className={style.container}>
@@ -50,7 +54,10 @@ const Header = () => {
                             </div>
                         </div>
                         <Phones />
-                        <Button text="Войти" type="default" />
+                        <Button text="Войти" type="default" onClick={() => setIsModalOpen(true)}/>
+                        {isModalOpen && <Modal modalId="sign-in" openModal={setIsModalOpen}>
+                            <SignInForm/>
+                        </Modal>}
                     </div>
                 </div>
                 <div className={style.header__bottom}>
