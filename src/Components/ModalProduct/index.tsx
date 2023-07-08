@@ -5,7 +5,7 @@ import ProductCardSticker from '../MainComponents/ProductCardSticker'
 import ProductCardSChooseSize from '../MainComponents/ProductCardSChooseSize'
 import Button from '../Header/Components/Button'
 import pizza from '../MainComponents/ProductCard/icons/pizza.png'
-import cross from './icons/cross.svg'
+import CloseCross from '../CloseCross/'
 
 interface IModalProduct extends IProductData,IOpenModal{
 
@@ -40,9 +40,7 @@ const ModalProduct: FC<IModalProduct> = ({ productData, size, openModal }) => {
                 <div className={style.inCard}>
                     <Button text={`Добавить в корзину за ${productSize === 'min' ? 650 : 850}`} type="basket" />
                 </div>
-                <div className={style.cross}  onClick={() => openModal(false)}>
-                    <img src={cross} alt="cross"/>
-                </div>
+                <CloseCross openModal={openModal}/>
             </div>
         </div>
     )

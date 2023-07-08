@@ -1,0 +1,21 @@
+.inpit__container{
+    width: 100%;
+    margin-bottom: 5px;
+}
+.title{
+    color: white;
+    font-weight: 500;
+    margin-bottom: 8px;
+    margin-left: 20px;
+}
+.input{
+    width: 100%;
+    border-radius: 25px;
+    height: 35px;
+    padding: 10px 20px;
+    border: 1px solid #36373b;
+    background-color: #434b51;
+}
+.input:focus{
+    border: 1px solid #b41818;
+}

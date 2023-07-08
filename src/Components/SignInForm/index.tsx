@@ -1,8 +1,10 @@
-import {FC, useEffect, useState, useRef, FormEventHandler} from 'react'
+import {FC, useEffect, useState, useRef} from 'react'
 import style from './SignInForm.module.css'
+import Input from '../Input'
+import Button from '../Header/Components/Button'
 
-interface SignInForm {
-  login?: string,
+interface ISignInForm {
+  tel?: string,
   password?: string
 }
 
@@ -10,11 +12,11 @@ interface SignInTouched {
   [field: string]: boolean,
 }
 
-const validation = (values: SignInForm): SignInForm => {
-  const errors: SignInForm = {}
+const validation = (values: ISignInForm): ISignInForm => {
+  const errors: ISignInForm = {}
 
-  if(!values.login) errors.login = 'login is required'
-  if(values.login?.length && values.login?.length < 3) errors.login = 'login is too short'
+  if(!values.tel) errors.tel = 'tel is required'
+  if(values.tel?.length && values.tel?.length < 3) errors.tel = 'tel is too short'
   if(!values.password) errors.password = 'password is required'
   if(values.password?.length && values.password?.length < 3) errors.password = 'password is too short'
 
@@ -23,19 +25,14 @@ const validation = (values: SignInForm): SignInForm => {
 
 
 const SignInForm: FC = () => { // TODO: change all of this useState to useReducer https://react.dev/reference/react/useReducer
-  const [form, setForm] = useState<SignInForm>({login: '', password: ''})
-  const [error, setError] = useState<SignInForm>({})
-  const [touched, setTouched] = useState<SignInTouched>({login: false, password: false})
+  const [form, setForm] = useState<ISignInForm>({tel: '', password: ''})
+  const [error, setError] = useState<ISignInForm>({})
+  const [touched, setTouched] = useState<SignInTouched>({tel: false, password: false})
   const defFocus = useRef<HTMLInputElement>(null)
 
-  const handleSignIn: FormEventHandler<HTMLFormElement> = (e) => {
-    e.preventDefault()
-    console.log(form)
-  }
-
-  useEffect(() => {
+  /* useEffect(() => {
     defFocus?.current?.focus()
-  }, [])
+  }, []) */
 
   useEffect(() => {
     setError(validation(form))
@@ -48,26 +45,21 @@ const SignInForm: FC = () => { // TODO: change all of this useState to useReduce
     }
   }
 
-  // const handleFormChange = (e: { target: HTMLInputElement }) => {
-  //   const name = e.target.name
-  //   setForm(prev => ({...prev, [name]: e.target.value}))
-  //}
-
-  return <>
-    <form onSubmit={handleSignIn} className={style.form}>
-      <label className={style.label}>
-        <input onChange={handleFormChange('login')} className={style.input} ref={defFocus}/>
-        {error.login && touched.login ? <span className={style.alert}>{error.login}</span> : ''}
-      </label>
-
-      <label className={style.label}>
-        <input type="password" onChange={handleFormChange('password')} className={style.input}/>
-        {error.password && touched.login ? <span className={style.alert}>{error.password}</span> : ''}
-      </label>
-
-      <button className={style.btn}>Sign in</button>
-    </form>
-  </>
+  return (
+    <div className={style.container}>
+        <label className={style.label}>
+            <Input title='Введите телефон' placeHolder='+7' type='tel' handler={handleFormChange}/>
+            <span className={style.error__mesage}>{error  && touched.tel ? error.tel : ''}</span>
+        </label>
+        <label className={style.label}>
+            <Input title='Введите пароль' placeHolder='Пароль' type='password'  handler={handleFormChange}/>
+            <span className={style.error__mesage}>{error  && touched.password ? error.password : ''}</span>
+        </label>
+        <div className={style.button}>
+          <Button  text="Войти" type="basket"/>
+        </div>
+    </div>
+  )
 }
 
 export default SignInForm

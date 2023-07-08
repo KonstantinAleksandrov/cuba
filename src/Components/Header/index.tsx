@@ -7,7 +7,7 @@ import NavLink from './Components/NavLink'
 import { Link } from 'react-router-dom'
 import { products } from '../MainComponents/ProductsData'
 import Modal from "../Modal";
-import SignInForm from '../SignInForm'
+import ModalForms from '../ModalForms'
 import {useState} from 'react'
 
 const Header = () => {
@@ -55,8 +55,8 @@ const Header = () => {
                         </div>
                         <Phones />
                         <Button text="Войти" type="default" onClick={() => setIsModalOpen(true)}/>
-                        {isModalOpen && <Modal modalId="sign-in" openModal={setIsModalOpen}>
-                            <SignInForm/>
+                        {isModalOpen && <Modal modalId="form" openModal={setIsModalOpen}>
+                            <ModalForms openModal={setIsModalOpen}/>
                         </Modal>}
                     </div>
                 </div>
