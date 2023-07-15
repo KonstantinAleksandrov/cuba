@@ -1,4 +1,4 @@
-import { Istate, Iaction, Iform } from '../../types'
+import { Istate, Iaction, Iform, Validation } from '../../types'
 
 
 export const initialState: Istate = {
@@ -8,8 +8,8 @@ export const initialState: Istate = {
 }
 
 
-const validation = (values: Iform): Iform => {
-    const errors: Iform = {}
+const validation = (values: Iform): Validation => {
+    const errors: Validation = {}
 
     if (!values.tel) errors.tel = 'tel is required'
     if (values.tel?.length && values.tel?.length < 3) errors.tel = 'tel is too short'
@@ -18,6 +18,10 @@ const validation = (values: Iform): Iform => {
 
     return errors
 }
+
+/**
+    REDUCER
+ */
 
 export const signInReducer = (state: Istate, action: Iaction) => {
     switch (action.type) {
@@ -39,3 +43,11 @@ export const signInReducer = (state: Istate, action: Iaction) => {
             return state
     }
 }
+
+
+/**
+    ACTION CREATORS
+*/
+
+export const setTel = (tel: string) => ({ type: 'tel', payload: tel })
+export const setPassword = (pass: string) => ({ type: 'password', payload: pass })
