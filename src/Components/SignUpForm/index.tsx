@@ -9,20 +9,20 @@ import { Context } from './context'
 
 const SignUPForm = () => {
     const [state, dispatch] = useReducer(signUpReducer, initialState)
-    
+    console.log(123)
     return (
         <Context.Provider value={{ state, dispatch }}>
             <div className={style.container}>
                 <label className={style.label}>
-                    <Input title='Введите телефон' placeHolder='+7' type='tel' />
+                    <Input title='Введите телефон' placeHolder='+7' type='tel' context={Context}/>
                     <span className={style.error__mesage}>{state.error && state.touched.tel ? state.error.tel : ''}</span>
                 </label>
                 <label className={style.label}>
-                    <Input title='Введите пароль' placeHolder='Пароль' type='password' />
+                    <Input title='Введите пароль' placeHolder='Пароль' type='password'  context={Context}/>
                     <span className={style.error__mesage}>{state.error && state.touched.password ? state.error.password : ''}</span>
                 </label>
                 <label className={style.label}>
-                    <Input title='Повторите пароль' placeHolder='Повторите еще раз' type='repeadPassword' />
+                    <Input title='Повторите пароль' placeHolder='Повторите еще раз' type='repeadPassword' context={Context} />
                     <span className={style.error__mesage}>{state.error && state.touched.repeadPassword ? state.error.repeadPassword : ''}</span>
                 </label>
                 <div className={style.button}>
