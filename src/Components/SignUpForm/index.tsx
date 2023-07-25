@@ -9,7 +9,6 @@ import { Context } from './context'
 
 const SignUPForm = () => {
     const [state, dispatch] = useReducer(signUpReducer, initialState)
-    console.log(123)
     return (
         <Context.Provider value={{ state, dispatch }}>
             <div className={style.container}>

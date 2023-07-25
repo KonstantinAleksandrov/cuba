@@ -8,7 +8,6 @@ import { Context } from './context'
 
 const SignInForm: FC = () => {
   const [state, dispatch] = useReducer(signInReducer, initialState)
-  console.log(123)
   return (
     <Context.Provider value={{ state, dispatch }}>
       <div className={style.container}>
