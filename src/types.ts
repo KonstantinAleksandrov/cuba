@@ -16,9 +16,9 @@ export interface IProductData {
 }
 
 export interface Iform {
-    tel?: string,
-    password?: string,
-    repeadPassword?: string
+    tel: string,
+    password: string,
+    repeatPassword?: string
 }
 
 export interface Itouched {
@@ -27,7 +27,7 @@ export interface Itouched {
 
 export interface Istate {
     form: Iform,
-    error: Iform,
+    error: Validation,
     touched: Itouched,
 }
 export interface Iaction {
@@ -37,4 +37,8 @@ export interface Iaction {
 export interface IContextProps {
     state: Istate;
     dispatch: Dispatch<Iaction>;
+}
+
+export interface Validation {
+    [errorName: string]: string
 }

@@ -1,21 +1,21 @@
-import { Istate, Iaction,Iform } from '../../types'
+import {Istate, Iaction, Iform, Validation} from '../../types'
 
 export const initialState: Istate = {
-    form: { tel: '', password: '', repeadPassword: '' },
+    form: { tel: '', password: '', repeatPassword: '' },
     error: {},
-    touched: { tel: false, password: false, repeadPassword: false }
+    touched: { tel: false, password: false, repeatPassword: false }
 }
 
 
-const validation = (values: Iform): Iform => {
-    const errors: Iform = {}
+const validation = (values: Iform): Validation => {
+    const errors: Validation = {}
 
     if (!values.tel) errors.tel = 'login is required'
     if (values.tel?.length && values.tel?.length < 3) errors.tel = 'login is too short'
     if (!values.password) errors.password = 'password is required'
     if (values.password?.length && values.password?.length < 3) errors.password = 'password is too short'
-    if (!values.repeadPassword) errors.repeadPassword = 'repeadPassword is required'
-    if (values.repeadPassword?.length && values.repeadPassword?.length < 3) errors.repeadPassword = 'repeadPassword is too short'
+    if (!values.repeatPassword) errors.repeatPassword = 'repeatPassword is required'
+    if (values.repeatPassword?.length && values.repeatPassword?.length < 3) errors.repeatPassword = 'repeatPassword is too short'
 
     return errors
 }
@@ -37,14 +37,24 @@ export const signUpReducer = (state: Istate, action: Iaction) => {
                 form: { ...state.form, password: action.payload },
                 error: {...state.error, password: validation(state.form).password}
             }
-        case 'repeadPassword':
+        case 'repeatPassword':
             return {
                 ...state,
-                touched: {...state.touched, repeadPassword: true},
-                form: { ...state.form, repeadPassword: action.payload },
-                error: {...state.error, repeadPassword: validation(state.form).repeadPassword}
+                touched: {...state.touched, repeatPassword: true},
+                form: { ...state.form, repeatPassword: action.payload },
+                error: {...state.error, repeatPassword: validation(state.form).repeatPassword}
             }
         default:
             return state
     }
 }
+
+
+
+/**
+ ACTION CREATORS
+ */
+
+export const setTel = (tel: string) => ({ type: 'tel', payload: tel })
+export const setPassword = (pass: string) => ({ type: 'password', payload: pass })
+export const setRepeatPassword = (pass: string) => ({ type: 'repeatPassword', payload: pass })
