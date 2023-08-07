@@ -42,7 +42,7 @@ const Slider = () => {
                             <SliderItem
                                 text={id}
                                 backgroundColor={backgroundColor}
-                                key={id}
+                                key={slideIndex}
                                 position={position}
                             />
                         )

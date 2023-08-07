@@ -42,3 +42,22 @@ export interface IContextProps {
 export interface Validation {
     [errorName: string]: string
 }
+
+
+export interface I2ProductData {
+    id: number,
+    name: string,
+    description: string | null,
+    price: number,
+    size: string,
+    promotion: string | null,
+    type: string
+}
+
+export interface IProducts {
+    products: I2ProductData[]
+}
+
+export interface IfetchProductsError {
+    error: string 
+}

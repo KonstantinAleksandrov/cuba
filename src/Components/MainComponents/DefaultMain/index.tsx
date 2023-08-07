@@ -3,6 +3,7 @@ import Slider from '../Slider'
 import { products } from '../ProductsData'
 
 const DefaultMain = () => {
+    
     return (
         <>
             <Slider />

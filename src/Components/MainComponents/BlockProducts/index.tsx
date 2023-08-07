@@ -1,7 +1,8 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useContext } from 'react'
 import style from './BlockProducts.module.css'
 import ProductCard from '../ProductCard'
 import NavLink from '../../Header/Components/NavLink'
+import { Context } from '../Main/context'
 
 interface IBlockProducts {
     title: string
@@ -19,7 +20,7 @@ const BlockProducts: FC<IBlockProducts> = ({
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-
+    const data = useContext(Context)
     return (
         <div className={style.block__Products}>
             {selected ? (
@@ -52,7 +53,7 @@ const BlockProducts: FC<IBlockProducts> = ({
                 </div>
             )}
             <div className={style.body}>
-                {products.map((product) => {
+                {products.map((product,key) => {
                     return (
                         <ProductCard
                             productData={product}
@@ -69,7 +70,7 @@ const BlockProducts: FC<IBlockProducts> = ({
                                           maxSize: '',
                                       }
                             }
-                            key={product}
+                            key={key}
                         />
                     )
                 })}
