@@ -24,7 +24,7 @@ const Main = () => {
                 <div className={style.container}>
                     <Routes>
                         <Route path="/" element={<DefaultMain />} />
-                        <Route
+                        <Route // TODO: loop in products
                             path={products.pizza.route}
                             element={
                                 <BlockProducts
@@ -36,13 +36,13 @@ const Main = () => {
                             }
                         />
                         <Route
-                            path={products.snaks.route}
+                            path={products.snacks.route}
                             element={
                                 <BlockProducts
-                                    title={products.snaks.type}
-                                    route={products.snaks.route}
+                                    title={products.snacks.type}
+                                    route={products.snacks.route}
                                     selected={true}
-                                    products={products.snaks.products}
+                                    products={products.snacks.products}
                                 />
                             }
                         />
@@ -53,7 +53,7 @@ const Main = () => {
                                     title={products.beverages.type}
                                     route={products.beverages.route}
                                     selected={true}
-                                    products={products.beverages.products}
+                                    products={products?.beverages?.products}
                                 />
                             }
                         />

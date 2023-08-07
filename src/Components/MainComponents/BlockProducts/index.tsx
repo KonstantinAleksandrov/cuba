@@ -6,7 +6,7 @@ import { Context } from '../Main/context'
 
 interface IBlockProducts {
     title: string
-    products: number[]
+    products?: number[]
     selected: boolean
     route: string
 }
@@ -53,7 +53,7 @@ const BlockProducts: FC<IBlockProducts> = ({
                 </div>
             )}
             <div className={style.body}>
-                {products.map((product,key) => {
+                {products?.map((product,key) => {
                     return (
                         <ProductCard
                             productData={product}

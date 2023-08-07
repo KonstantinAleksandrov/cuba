@@ -67,8 +67,8 @@ const Header = () => {
                             route={products.pizza.route}
                         />
                         <NavLink
-                            text={products.snaks.type}
-                            route={products.snaks.route}
+                            text={products.snacks.type}
+                            route={products.snacks.route}
                         />
                         <NavLink
                             text={products.beverages.type}

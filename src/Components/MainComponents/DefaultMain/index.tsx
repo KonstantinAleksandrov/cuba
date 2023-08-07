@@ -14,10 +14,10 @@ const DefaultMain = () => {
                 products={products.pizza.products}
             />
             <BlockProducts
-                title={products.snaks.type}
-                route={products.snaks.route}
+                title={products.snacks.type}
+                route={products.snacks.route}
                 selected={false}
-                products={products.snaks.products}
+                products={products.snacks.products}
             />
             <BlockProducts
                 title={products.beverages.type}

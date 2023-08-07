@@ -1,12 +1,12 @@
 interface IProduct {
     type: string
     route: string
-    products: number[]
+    products?: number[]
 }
 
-interface IProducts {
+export interface IProducts {
     pizza: IProduct
-    snaks: IProduct
+    snacks: IProduct
     beverages: IProduct
 }
 
@@ -16,9 +16,9 @@ export const products: IProducts = {
         route: '/pizza',
         products: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     },
-    snaks: {
+    snacks: {
         type: 'Закуски',
-        route: '/snaks',
+        route: '/snacks',
         products: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     },
     beverages: {
